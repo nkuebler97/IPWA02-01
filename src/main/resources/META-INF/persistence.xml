@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+    <persistence-unit name="default">
+        <jta-data-source>java:/MySqlDS</jta-data-source>
+        <class>com.co2.co2data.emission.beans.Co2EmissionBean</class>
+        <class>com.co2.co2data.emission.dao.Co2EmissionDAO</class>
+        <class>com.co2.co2data.emission.entities.Co2Emission</class>
+        <properties>
+            <property name="jakarta.persistence.jdbc.user" value="root1"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.password" value="123"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/owid-co2-data"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.show_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>

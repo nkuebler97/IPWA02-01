@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+   <title>Add CO₂ Emission Data</title>
+</h:head>
+<h:body>
+   <h:form>
+      <h3>Enter CO₂ Emission Data</h3>
+      <h:panelGrid columns="2">
+         <h:outputLabel for="country" value="Country:" />
+         <h:inputText id="country" value="#{addCo2DataBean.co2Emission.country}" required="true" />
+         <h:outputLabel for="year" value="Year:" />
+         <h:inputText id="year" value="#{addCo2DataBean.co2Emission.year}" required="true">
+            <f:validateLongRange minimum="1900" maximum="2100" />
+         </h:inputText>
+         <h:outputLabel for="isoCode" value="ISO Code:" />
+         <h:inputText id="isoCode" value="#{addCo2DataBean.co2Emission.isoCode}" />
+         <h:outputLabel for="population" value="Population:" />
+         <h:inputText id="population" value="#{addCo2DataBean.co2Emission.population}" />
+         <h:outputLabel for="gdp" value="GDP:" />
+         <h:inputText id="gdp" value="#{addCo2DataBean.co2Emission.gdp}" />
+         <h:outputLabel for="co2" value="CO₂ Emissions:" />
+         <h:inputText id="co2" value="#{addCo2DataBean.co2Emission.co2}" />
+         <h:outputLabel for="co2PerCapita" value="CO₂ Per Capita:" />
+         <h:inputText id="co2PerCapita" value="#{addCo2DataBean.co2Emission.co2PerCapita}" />
+         <h:outputLabel for="co2PerGdp" value="CO₂ Per GDP:" />
+         <h:inputText id="co2PerGdp" value="#{addCo2DataBean.co2Emission.co2PerGdp}" />
+         <h:outputLabel for="co2GrowthAbs" value="Growth Rate:" />
+         <h:inputText id="co2GrowthAbs" value="#{addCo2DataBean.co2Emission.co2GrowthAbs}" />
+      </h:panelGrid>
+      <h:commandButton value="Submit" action="#{addCo2DataBean.addData}" />
+   </h:form>
+</h:body>
+</html>

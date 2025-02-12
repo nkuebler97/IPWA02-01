@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>CO2 Emission Data</title>
+</h:head>
+<h:body>
+    <h1>CO2 Emission Data</h1>
+    <h:form>
+        <h:outputLabel for="country" value="Select Country:" />
+        <h:selectOneMenu id="country" value="#{co2EmissionBean.selectedCountry}">
+            <f:selectItem itemLabel="-- Select a Country --" itemValue="" />
+            <f:selectItems value="#{co2EmissionBean.countries}" var="country" itemValue="#{country}" itemLabel="#{country}" />
+        </h:selectOneMenu>
+        <h:outputLabel for="year" value="Select Year:" />
+        <h:inputText id="year" value="#{co2EmissionBean.selectedYear}" />
+        <h:commandButton value="Fetch CO2 Data" action="#{co2EmissionBean.fetchCo2EmissionData}" />
+    </h:form>
+    <h:panelGroup rendered="#{not empty co2EmissionBean.co2Emission}">
+        <h2>CO2 Emission Data</h2>
+        <p><strong>Country:</strong> #{co2EmissionBean.co2Emission.country}</p>
+        <p><strong>Year:</strong> #{co2EmissionBean.co2Emission.year}</p>
+        <p><strong>CO2 Emission:</strong> #{co2EmissionBean.co2Emission.cementCo2} tons</p>
+        <p><strong>CO2 per Capita:</strong> #{co2EmissionBean.co2Emission.cementCo2PerCapita} tons</p>
+        <p><strong>CO2 Growth :</strong> #{co2EmissionBean.co2Emission.co2GrowthAbs}</p>
+        <p> #{co2EmissionBean.co2Emission}</p>
+    </h:panelGroup>
+    <h:panelGroup rendered="#{empty co2EmissionBean.co2Emission}">
+        <h3>No data found for the selected country and year.</h3>
+    </h:panelGroup>
+    <h:link value="Login" outcome="login" />
+</h:body>
+</html>
