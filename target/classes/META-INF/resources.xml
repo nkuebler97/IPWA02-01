@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <Resource id="userDataSource" type="DataSource">
+        com.mysql.cj.jdbc.Driver
+        jdbc:mysql://localhost:3306/owid-co2-data
+        UserName root1
+        Password 123
+    </Resource>
+</resources>
